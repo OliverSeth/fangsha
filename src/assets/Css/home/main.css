@@ -89,7 +89,7 @@
 .centerBar>div:nth-child(2){
     height: 54%;
     background: #356b59;
-    box-shadow: #356b59 0 0 40px;
+    box-shadow: darkgreen;
 }
 .centerBar>div:nth-child(3){
     height: 40%;
@@ -123,18 +123,18 @@
     height: 100%;
     justify-content: flex-end;
 }
-.titles::before{
+.titles::before{    /*标题前面的小横线*/
     content: '';
     position: absolute;
-    width: 20%;
+    width: 10%;
     height: 3px;
     left: 10%;
     background: linear-gradient(to right,black,#004545);
 }
-.titles::after{
+.titles::after{     /*标题后面的小横线*/
     content: '';
     position: absolute;
-    width: 20%;
+    width: 10%;
     height: 3px;
     right: 10%;
     background: linear-gradient(to left,black,#004545);
@@ -156,7 +156,7 @@
     background: linear-gradient(to left,black,#004545);
 }
 .titleIcon>img{
-    height: 80%; 
+    height: 80%;
 }
 .titleIcon>div{
     margin-left: 10px;
@@ -182,8 +182,8 @@
     width: 100%;
 }
 .topBar3>div:nth-child(1){
-    box-shadow: #59cdf7 0 0 5px;
-    /* box-shadow: none; */
+    box-shadow: #00fffd;     /*这里是图片下方的那个bar的小方框，去掉了*/
+
 }
 /* 右边菜单样式设置 */
 .rightBar>div{
@@ -229,7 +229,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center; 
+    align-items: center;
     position: relative;
 }
 .curveInfo>div:nth-child(5){
@@ -256,11 +256,11 @@
     background: black;
     color: white;
     border:none;
-    width: 18%; 
+    width: 18%;
 }
-.monitorInfo>div:nth-child(2){
-    background: #00af50
-}
+/*.monitorInfo>div:nth-child(2){*/
+/*    background: #00af50*/
+/*}*/
 
 
 

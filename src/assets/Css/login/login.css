@@ -12,7 +12,7 @@
   }
   .login{
     animation: backG 40s infinite;
-    background-image: url("../../img/power1.jpg");
+    background-image: url("../../img/大数据3.jpg");
     background-size: cover;
     font-size: 12px;
     height: 100%;
@@ -23,12 +23,12 @@
     text-align: center;
   }
   @keyframes backG{
-    0% {background-image: url("../../img/power1.jpg")}
-    20% {background-image: url("../../img/power2.jpg")}
-    40% {background-image: url("../../img/power3.jpg")}
-    60% {background-image: url("../../img/power4.jpg")}
-    80% {background-image: url("../../img/power5.jpg")}
-    100% {background-image: url("../../img/power1.jpg")}
+    0% {background-image: url("../../img/大数据1.jpg")}
+    20% {background-image: url("../../img/大数据2.jpg")}
+    40% {background-image: url("../../img/大数据3.jpg")}
+    60% {background-image: url("../../img/大数据4.jpg")}
+    80% {background-image: url("../../img/大数据5.jpg")}
+    100% {background-image: url("../../img/大数据1.jpg")}
   }
 
   .Logo{

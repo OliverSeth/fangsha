@@ -48,7 +48,7 @@
 
 <script>
 import axios from 'axios'
-
+/* eslint-disable */
 // @ 可以检索组件的位置
 export default {
   name: 'Login',
@@ -65,32 +65,92 @@ export default {
   },
   methods: {
     logins () {
-      const message = {}
-      message.account = this.Account
-      message.password = this.Password
-      const _this = this
-      // console.log(message)
-      axios.post(this.GLOBEL.pathID + '/login/check', message).then(res => {
-        if (res.data === '成功！') {
-          alert('登录成功！')
-          setTimeout(() => {
-            _this.$router.push('/home/monitor')
-          }, 500)
-          // this.Effective_time = 70
-        } else {
-          alert('账号密码错误，请重新输入！')
-          _this.Account = ''
-          _this.Password = ''
+      // const message = {}
+      // message.account = this.Account
+      // message.password = this.Password
+      // const _this = this
+      // // console.log(message)
+      // axios.post(this.GLOBEL.pathID + '/login/check', message).then(res => {
+      //   if (res.data === '成功！') {
+      //     alert('登录成功！')
+      //     setTimeout(() => {
+      //       _this.$router.push('/home/monitor')
+      //     }, 500)
+      //     // this.Effective_time = 70
+      //   } else {
+      //     alert('账号密码错误，请重新输入！')
+      //     _this.Account = ''
+      //     _this.Password = ''
+      //   }
+      // }).catch(function (err) {
+      //   console.log(err)
+      //   alert('服务器连接失败!,尝试本地登录!')
+      //   setTimeout(() => {
+      //     _this.$router.push('/home/monitor')
+      //   }, 100)
+      // })
+       //下面是舒章磊更新的内容
+      const msg={
+        username: this.Account,
+        password: this.Password,
+      }
+      axios.post('http://'+this.GLOBEL.pathID+':5000/login',msg,{
+        transformRequest: [function (data) {
+          var str='';
+          for (var key in data) {
+            str += encodeURIComponent(key) + '=' + encodeURIComponent(data[key]) + '&';
+          }
+          return str;
+        }]
+      }).then(res=>{
+        console.log(res.data);
+        if(res.data!=='-1'){
+          this.$notify({
+            title: '成功',
+            message: '登录成功',
+            type: 'success'
+          });
+          localStorage.setItem('role',res.data);
+          this.$router.push('/home/deviceC');
+        }else{
+          this.$notify.error({
+            title: '错误',
+            message: '用户不存在或密码错误'
+          });
         }
-      }).catch(function (err) {
-        console.log(err)
-        alert('服务器连接失败!,尝试本地登录!')
-        setTimeout(() => {
-          _this.$router.push('/home/monitor')
-        }, 100)
       })
     }, // 登录逻辑
     registers () {
+      const msg = {
+        username: this.Account,
+        password: this.Password,
+        role:1
+      }
+      console.log(this.GLOBEL.pathID);
+      axios.post('http://'+this.GLOBEL.pathID+':5000/register',msg,{
+        transformRequest: [function (data) {
+          var str='';
+          for (var key in data) {
+            str += encodeURIComponent(key) + '=' + encodeURIComponent(data[key]) + '&';
+          }
+          return str;
+        }]
+      }).then(res=>{
+        console.log(res.data);
+        if(res.data==="success"){
+          this.$notify({
+            title: '成功',
+            message: '注册成功',
+            type: 'success'
+          });
+          this.$router.push('/')
+        }else{
+          this.$notify.error({
+            title: '错误',
+            message: '用户名已存在'
+          });
+        }
+      })
       this.login = false
       this.register = true
     }, // 注册逻辑

@@ -8,8 +8,8 @@
 export default {
   mounted () {
     // 网页访问地址的获取
-    const str = this.$el.baseURI.split('#')[0]
-    this.GLOBEL.pathID = str.split(':')[0] + ':' + str.split(':')[1] + this.GLOBEL.port
+    // const str = this.$el.baseURI.split('#')[0]
+    // this.GLOBEL.pathID = str.split(':')[0] + ':' + str.split(':')[1] + this.GLOBEL.port
   }
 }
 </script>

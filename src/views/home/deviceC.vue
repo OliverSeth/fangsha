@@ -160,7 +160,27 @@
         </section>
       </div>
       <div class="tongjiInfo2">
-        <div class="deviceIn" v-for="datas in deviceInfo" :key="datas.id" @click="Jump(datas.name)" :style="datas.color">
+        <div class="deviceIn" v-for="datas in deviceInfo1" :key="datas.id" @click="Jump1(datas.name)" :style="datas.color">
+          <div class="deviceIconImg"><img :src=" datas.imgurl " alt="图片"></div>
+          <div>
+            <div>{{datas.name}}</div>
+            <div>{{datas.states}}</div>
+            <div>线速度:{{datas.speed}}</div>
+            <div>络筒时间: {{datas.times1}}</div>
+            <div><span>剩余时间:</span> {{datas.times2}}</div>
+          </div>
+        </div>
+        <div class="deviceIn" v-for="datas in deviceInfo2" :key="datas.id" @click="Jump2(datas.name)" :style="datas.color">
+          <div class="deviceIconImg"><img :src=" datas.imgurl " alt="图片"></div>
+          <div>
+            <div>{{datas.name}}</div>
+            <div>{{datas.states}}</div>
+            <div>线速度:{{datas.speed}}</div>
+            <div>络筒时间: {{datas.times1}}</div>
+            <div><span>剩余时间:</span> {{datas.times2}}</div>
+          </div>
+        </div>
+        <div class="deviceIn" v-for="datas in deviceInfo3" :key="datas.id" @click="Jump3(datas.name)" :style="datas.color">
           <div class="deviceIconImg"><img :src=" datas.imgurl " alt="图片"></div>
           <div>
             <div>{{datas.name}}</div>
@@ -175,6 +195,7 @@
 </template>
 <script>
 export default {
+  /* eslint-disable */
   name: 'deviceC',
   data () {
     return {
@@ -190,46 +211,52 @@ export default {
         { name: '参数9', value: '----' },
         { name: '参数10', value: '----' }
       ],
-      deviceInfo: [
-        { name: 'L8#1', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
-        { name: 'L3#1', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
-        { name: 'L2#1', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
-        { name: 'L5#1', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
-        { name: 'L4#1', states: '需要注意', speed: 3200, times1: '17:58', times2: '22min', color: 'border:yellow 1px solid', imgurl: require('../../assets/img/device.jpg') },
-        { name: 'L7#1', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
-        { name: 'L9#1', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
-        { name: 'L1#1', states: '故障', speed: 3200, times1: '17:58', times2: '22min', color: 'border:red 1px solid', imgurl: require('../../assets/img/device.jpg') },
-        { name: 'L8#1', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
-        { name: 'L3#1', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
-        { name: 'L2#1', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
-        { name: 'L5#1', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
-        { name: 'L4#1', states: '需要注意', speed: 3200, times1: '17:58', times2: '22min', color: 'border:yellow 1px solid', imgurl: require('../../assets/img/device.jpg') },
-        { name: 'L7#1', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
-        { name: 'L9#1', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
-        { name: 'L1#1', states: '故障', speed: 3200, times1: '17:58', times2: '22min', color: 'border:red 1px solid', imgurl: require('../../assets/img/device.jpg') },
-        { name: 'L8#1', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
-        { name: 'L3#1', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
-        { name: 'L2#1', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
-        { name: 'L5#1', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
-        { name: 'L4#1', states: '需要注意', speed: 3200, times1: '17:58', times2: '22min', color: 'border:yellow 1px solid', imgurl: require('../../assets/img/device.jpg') },
-        { name: 'L7#1', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
-        { name: 'L9#1', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
-        { name: 'L1#1', states: '故障', speed: 3200, times1: '17:58', times2: '22min', color: 'border:red 1px solid', imgurl: require('../../assets/img/device.jpg') },
-        { name: 'L8#1', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
-        { name: 'L3#1', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
-        { name: 'L2#1', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
-        { name: 'L5#1', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
-        { name: 'L4#1', states: '需要注意', speed: 3200, times1: '17:58', times2: '22min', color: 'border:yellow 1px solid', imgurl: require('../../assets/img/device.jpg') },
-        { name: 'L7#1', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
-        { name: 'L9#1', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
-        { name: 'L1#1', states: '故障', speed: 3200, times1: '17:58', times2: '22min', color: 'border:red 1px solid', imgurl: require('../../assets/img/device.jpg') }
-
-      ]
+      deviceInfo1: [{ name: 'L8#1', states: '正常运行', speed: 3300, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') }],
+      deviceInfo2: [{ name: 'L8#2', states: '正常运行', speed: 3300, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') }],
+      deviceInfo3: [{ name: 'L8#3', states: '正常运行', speed: 3300, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
+                    { name: 'L8#4', states: '正常运行', speed: 3300, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
+                    { name: 'L8#5', states: '正常运行', speed: 3300, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
+                    { name: 'L8#6', states: '正常运行', speed: 3000, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
+                    { name: 'L8#7', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
+                    { name: 'L8#8', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
+                    { name: 'L8#9', states: '需要注意', speed: 3200, times1: '17:58', times2: '22min', color: 'border:yellow 1px solid', imgurl: require('../../assets/img/device.jpg') },
+                    { name: 'L7#1', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
+                    { name: 'L7#2', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
+                    { name: 'L7#3', states: '故障', speed: 3200, times1: '17:58', times2: '22min', color: 'border:red 1px solid', imgurl: require('../../assets/img/device.jpg') },
+                    { name: 'L7#4', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
+                    { name: 'L7#5', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
+                    { name: 'L7#6', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
+                    { name: 'L7#7', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
+                    { name: 'L7#8', states: '需要注意', speed: 3200, times1: '17:58', times2: '22min', color: 'border:yellow 1px solid', imgurl: require('../../assets/img/device.jpg') },
+                    { name: 'L7#9', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
+                    { name: 'L6#1', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
+                    { name: 'L6#2', states: '故障', speed: 3200, times1: '17:58', times2: '22min', color: 'border:red 1px solid', imgurl: require('../../assets/img/device.jpg') },
+                    { name: 'L6#3', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
+                    { name: 'L6#4', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
+                    { name: 'L6#5', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
+                    { name: 'L6#6', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
+                    { name: 'L6#7', states: '需要注意', speed: 3200, times1: '17:58', times2: '22min', color: 'border:yellow 1px solid', imgurl: require('../../assets/img/device.jpg') },
+                    { name: 'L6#8', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
+                    { name: 'L6#9', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
+                    { name: 'L5#1', states: '故障', speed: 3200, times1: '17:58', times2: '22min', color: 'border:red 1px solid', imgurl: require('../../assets/img/device.jpg') },
+                    { name: 'L5#2', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
+                    { name: 'L5#3', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
+                    { name: 'L5#4', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
+                    { name: 'L5#5', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
+                    { name: 'L5#6', states: '需要注意', speed: 3200, times1: '17:58', times2: '22min', color: 'border:yellow 1px solid', imgurl: require('../../assets/img/device.jpg') },
+                    { name: 'L5#7', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') },
+                    { name: 'L5#8', states: '正常运行', speed: 3200, times1: '17:58', times2: '22min', color: 'border:green 1px solid', imgurl: require('../../assets/img/device.jpg') }]
     }
   },
   methods: {
-    Jump (name) {
+    Jump1 (name) {
       this.$router.push('monitor')
+    },
+    Jump2 (name) {
+      this.$router.push('2monitor1')
+    },
+    Jump3 (name) {
+      this.$router.push('3monitor1')
     }
   },
   mounted () {

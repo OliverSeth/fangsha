@@ -1,9 +1,9 @@
 .btns{
-    display:flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+    display: flex;
+    flex-direction: initial;
+    justify-content: space-around;
     align-items: center;
-    cursor: pointer;
-    color: honeydew;
+    /*cursor: auto;*/
+    color: navajowhite;
 }
 

@@ -25,7 +25,7 @@
     top: 50%; 
 }
 .topBar1>div:nth-child(1){
-    box-shadow: #59cdf7 0 0 5px;
+    box-shadow: none;    /* 菜单栏那个小框 去掉了  */
 }
 .topBar2{
     right: 1%;
@@ -57,7 +57,7 @@
     50%{
         opacity: 0.8;
         text-shadow:1vh 1vh 11vh red;
-    };
+    }
     100%{
         opacity: 1;
         text-shadow:1vh 1vh 11vh yellow;
